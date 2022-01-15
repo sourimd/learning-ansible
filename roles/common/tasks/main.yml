@@ -1,9 +1,2 @@
-- name: Get pretty release date
-  ansible.builtin.command: date '+%Y-%m-%d %H:%M:%S'
-  register: release_date
-  sudo: false
-- name: Print current timestamp
-  sudo: false
-  ansible.builtin.debug:
-    msg:
-    - "{{ release_date.stdout }}"
+---
+- include: test.yml
