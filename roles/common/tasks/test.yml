@@ -6,3 +6,15 @@
   ansible.builtin.debug:
     msg:
     - "{{ release_date.stdout }}"
+
+- name: Return motd to registered var
+  ansible.builtin.command: cat /home/ec2-user/file2
+  register: mymotd
+- name: Print return information from the previous task
+  ansible.builtin.debug:
+    var: mymotd
+    verbosity: 2
+- name: Prints two lines of messages, but only if there is an environment value set
+  ansible.builtin.debug:
+    msg:
+    - "Provisioning based on YOUR_KEY which is: {{ mymotd.stdout }}"
