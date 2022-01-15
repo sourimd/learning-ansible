@@ -18,3 +18,16 @@
 #   ansible.builtin.debug:
 #     msg:
 #     - "Provisioning based on YOUR_KEY which is: {{ mymotd.stdout }}"
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: ~/{{ release_date.stdout }}
+    state: directory
+    mode: '0755'
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: ~/{{ release_date.stdout }}-learning_ansible
+    dest: ~/current
+    owner: ec2-user
+    group: ec2-user
+    state: link
