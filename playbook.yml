@@ -1,3 +1,2 @@
 - hosts: one
-  become: yes
   roles: common
