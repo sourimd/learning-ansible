@@ -1,2 +1,2 @@
-[one]
+[processor]
 172.31.21.99 ansible_user=ec2-user

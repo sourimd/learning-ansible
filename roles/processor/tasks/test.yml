@@ -19,7 +19,7 @@
 #     msg:
 #     - "Provisioning based on YOUR_KEY which is: {{ mymotd.stdout }}"
 
-- name: Create a directory if it does not exist
+- name: Create a directory if it does not exist to contain application code
   ansible.builtin.file:
     path: ~/{{ release_date.stdout }}-learning_ansible-{{ foo }}
     state: directory
